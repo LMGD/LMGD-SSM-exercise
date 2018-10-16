@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--*****************   mybatis的配置文件  start  ********************-->
+   <!-- <settings>
+        <setting name="logImpl" value="SLF4J"/>
+        &lt;!&ndash; 开启二级缓存 &ndash;&gt;
+        <setting name="cacheEnabled" value="true"/>
+    </settings>-->
+
+    <!--定义别名 -->
+    <typeAliases>
+        <!--单个别名的定义 alias:别名 type: 别名映射的类型 -->
+        <!--<typeAlias type="com.lmgd.oa.model.Book" alias="Book"/>-->
+        <!-- 批量别名的定义 指定包路径，自动扫描包下边的 pojo,定义别名，别名默认为类名(首字母大写或小写) -->
+        <package name="po"></package>
+    </typeAliases>
+
+    <!-- 加载 mappers映射 如果将Spring整合后，可以使用整合包中提供的 mapper 扫描器,那么此处的 mappers 就可以不用配置啦-->
+    <mappers>
+        <!--加载原始dao使用的 user.xml --><!--你没有去 pom.xml配置  那么只能扫到 resources下面的-->
+       <mapper resource="mapper/UserMapper.xml"></mapper>
+        <!--<package name="mapper"></package>-->
+    </mappers>
+
+    <!-- spring和MyBatis整合 里面已经自动扫描了*.xml-->
+    <!-- <mappers>
+         <mapper resource="com/lmgd/oa/mapper/BookMapper.xml"/>
+     </mappers>-->
+</configuration>
+        <!--*****************   mybatis的配置文件  start  ********************-->

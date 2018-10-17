@@ -1,0 +1,44 @@
+-- 商品表
+create table items
+(
+ items_id int not null primary key auto_increment, -- 商品id
+ name varchar(32) not null,
+ price float(10,1) not null,
+ detail text,
+ img varchar(64) default null ,
+ createtime datetime not null 
+);
+
+-- 用户表
+create table user
+(
+ user_id int not null primary key auto_increment,
+ user_name VARCHAR(32) not null ,
+ birthday date default null,
+ sex char(1) default null,
+ address varchar(256) default null
+);
+
+
+-- 订单表
+create table orders
+(
+ orders_id int not null primary key auto_increment,
+ user_id int not null,
+ createtime datetime not null,
+ note varchar(100) ,
+ FOREIGN key (user_id) REFERENCES user(user_id)
+);
+
+-- 订单项
+create table orderdetail
+(
+ id int not null primary key auto_increment,
+ orders_id int not null ,
+ items_id int not null ,
+ items_num int ,
+foreign key(orders_id) REFERENCES orders(orders_id)
+)
+
+
+
